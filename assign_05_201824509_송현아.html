@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>개인정보입력</title>
+  <style>
+    .box1,.box2{
+      padding: 10px;
+      margin: 10px;
+      width: 400px
+    }
+    .box1{
+      border-radius: 10px;
+      border: 2px solid #73AD21;
+      background-color: #73AD21;
+      height: 20px;
+      color: white;
+      text-align: center;
+    }
+    div>label{
+      display: inline-block;
+      background-color: white;
+      width: 100%;
+      height: 25px;
+      font-size: 14px;
+    }
+
+    div>div>div{
+      border: 1px solid #8c8c8c;
+      padding-left: 9%;
+      padding-bottom: 10px;
+      padding-top: 5px;
+    }
+    input[type=text]{
+      width: 100%;
+      height: 35px;
+      border: 1px solid #8c8c8c;
+      box-sizing: border-box;
+      padding: 5px;
+      color: #8c8c8c;
+    }
+    input[type=submit],input[type=reset]{
+      background-color: #73AD21;
+      width: 45%;
+      border: none;
+      padding: 10px;
+      margin: 5px;
+      color:white;
+      box-sizing: border-box;
+      margin-top: 30px;
+    }
+    textarea{
+      width: 99%;     
+    }
+
+    #date{
+      border: 1px solid #8c8c8c;
+      display: inline-block;
+      margin: 4px;
+      width: 30%;
+      height: 35px;
+      font-size: 12px; 
+    }
+  </style>
+</head>
+<body>
+<form name="myform" method="get" action="#">
+  <!-- 제목 입력 -->
+  <div class="box1">
+    개인 신청 자료
+  </div> 
+  <div class="box2">
+    <div>
+      <!-- 이름 입력 -->
+      <label for="fname">성명</label><br>
+      <input type="text" name="fname" id="fname" value="성명 입력">
+    </div>
+    <br>
+    <div>
+      <!-- 이메일 입력 -->
+      <label for="email">E-mail</label><br>
+      <input type="text" name="email" id="email" value="Email 입력">
+    </div>
+    <br>
+    <div>
+      <!-- 생년월일 입력 -->
+      <label for="birth">생년월일</label><br>
+      <span><input type="text" id="date" value="년"></span>
+      <span>
+        <select name="month" id="date">
+          <option value="1월">1월</option>
+          <option value="2월">2월</option>
+          <option value="3월">3월</option>
+          <option value="4월">4월</option>
+          <option value="5월">5월</option>
+          <option value="6월">6월</option>
+          <option value="7월">7월</option>
+          <option value="8월">8월</option>
+          <option value="9월">9월</option>
+          <option value="10월">10월</option>
+          <option value="11월">11월</option>
+          <option value="12월">12월</option>
+        </select>
+      </span>
+      <span><input type="text" id="date" value="일"></span>
+    </div>
+    <br>
+    <div>
+      <!-- 성별 입력 -->
+      <label for="sex">성별</label><br>
+      <div>
+        남<input type="radio" name="choice" value="남자">
+        여<input type="radio" name="choice" value="여자">
+      </div>
+    </div>
+    <br>
+    <div>
+      <!-- 관심분야 입력 -->
+      <label for="interest">관심분야</label><br>
+      <div>
+        C<input type="checkbox" name="lang" value="C언어">
+        파이썬<input type="checkbox" name="lang" value="python">
+        R<input type="checkbox" name="lang" value="R">
+        Javascript<input type="checkbox" name="lang" value="Javascript">
+      </div>
+    </div>
+    <br>
+    <div>
+      <!-- 기타 -->
+      <label for="etc">기타</label><br>
+      <textarea name="etc" cols="50" rows="4"></textarea>
+    </div>
+    <div>
+      <input type="submit" value="확인">
+      <input type="reset" value="취소">
+    </div>
+  </div> 
+</form>
+</body>
+</html>
