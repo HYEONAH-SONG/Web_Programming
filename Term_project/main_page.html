@@ -7,12 +7,16 @@
     <title>Hyun's Calendar</title>
     <style>
         /* -------------------제일 상단 부분 ----------------*/
-        header{ 
+        header { 
             text-align:center;
             background-color:#b1b6e3;
             padding: 30px 30px 30px 30px;
             color: white;     
         }
+        /* header input[type=text][type=submit]{
+            margin-top: 25px;
+            float: right;
+        } */
         /* --------------------카테고리-------------------- */
         /* nav design : 카테고리 */
         nav{
@@ -23,6 +27,14 @@
         nav a{
             text-decoration: none;
             padding:11px;
+        }
+        /* nav 내부에 있는 youtube 검색창 (descendant selector) */
+        nav form{
+            float: right;
+        }
+        nav input{
+            border: 1px solid #b1b6e3;
+            padding: 4px 10px;
         }
         /* 마우스를 올릴때 안올릴 때 */
         nav a:link, nav a:visited{
@@ -42,11 +54,17 @@
             height:200px;
         }
         /* ------------검색창------------------ */
-        input {
-            border-radius: 20px;
-            border: 1px solid #b1b6e3;
+        section input[type=submit]{
+            border-radius: 15px;      
             margin: 10px 0;
             padding: 10px 12px;
+            border: 1px solid gray;
+        }
+        section input[type=text]{
+            border-radius: 15px;      
+            margin: 10px 0;
+            padding: 10px 12px;
+            border: 1px solid #b1b6e3;
         }
     </style>
 </head>
@@ -61,8 +79,12 @@
         <a href="add_schedule.html">[ Add Schedule ]</a>&nbsp;&nbsp;
         <a href="todo_list.html">[ To Do List ]</a>&nbsp;&nbsp;
         <a href="#s4">[ Memo ]</a>&nbsp;&nbsp;
+        <form method=get action="http://www.youtube.com/results" target="_blank" >              
+            <input type=text name=q size=20% maxlength=255 value="" /> <!-- 유튜브 검색 입력 창 -->           
+            <input type=submit name=btnG2 value="Search" /> <!-- 검색 버튼 -->       
+        </form>        
     </nav>
-
+    
     <section id="google">
         <form method=get action="http://www.google.co.kr/search" target="_blank" >              
             <input type=text name=q size=100% maxlength=255 value="" /> <!-- 구글 검색 입력 창 -->           
