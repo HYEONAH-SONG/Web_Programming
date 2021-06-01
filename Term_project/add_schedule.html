@@ -4,7 +4,23 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>일정 추가</title>
+  <!-- <script src="diary_manage.js"></script> -->
+  <title>Add Diary</title>
+  <script>
+    // Create an object:
+    function show(){
+      name = document.getElementById('fname').value;
+      document.getElementById("demo").innerHTML = name ;
+      var memo = {
+      title: "document.getElementById('fname').value",
+      date: "document.getElementById('date').value",
+      emotion:"document.getElementById('memo').value",
+      content: "document.getElementById('memo').value"
+      };
+      document.getElementById("demo").innerHTML = momo["title"] + " " + momo["date"] + " " + momo["emotion"] + " " + momo["content"] ;
+    }
+  
+  </script>
   <style>
     .box2{
       padding: 10px;
@@ -64,51 +80,59 @@
       font-size: 12px; 
       width: 170px;
     }
+    button{
+    float: right;
+    border-radius: 15px;      
+    margin: 10px 0;
+    padding: 10px 12px;
+    border: 1px solid gray;  
+  }
   </style>
 </head>
 <body>
 <form name="myform" method="get" action="#">
   <!-- 일정 제목 입력 -->
   <div class="box1">
-    <h1>일정 추가하기</h1>
+    <h1>Add Diary :)</h1>
   </div> 
   <div class="box2">
     <div>
       <!-- 일정 입력 -->
-      <label for="fname">일정</label><br>
-      <input type="text" name="fname" id="fname" placeholder="일정 입력">
+      <label for="fname">Title</label><br>
+      <input type="text" name="fname" id="fname" placeholder="제목 입력">
     </div>
     <br>
     <div>
-      <!-- 일정 날짜 입력 -->
-      <label for="date">일정 시작 날짜</label><br>
-      <span><input type="date" id="date"></span>
-      <label for="date">일정 마지막 날짜</label><br>
+      <!-- 일기 날짜 입력 -->
+      <label for="date">Date</label><br>
       <span><input type="date" id="date"></span>
     </div>
     <br>
     <div>
       <!-- 일정 카테고리 -->
-      <label for="interest">카테고리</label><br>
+      <label for="interest">Emotion</label><br>
       <div>
-        과제<input type="radio" name="category" value="과제">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        시험<input type="radio" name="category" value="시험">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        데이트<input type="radio" name="category" value="데이트">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        자기개발<input type="radio" name="category" value="자기개발">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        기타<input type="radio" name="category" value="기타">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        행복<input type="radio" name="category" value="happy">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        슬픔<input type="radio" name="category" value="sad">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        차분함<input type="radio" name="category" value="calm">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        화남<input type="radio" name="category" value="angy">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        놀람<input type="radio" name="category" value="surprised">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       </div>
     </div>
     <br>
     <div>
       <!-- 메모  -->
-      <label for="memo">메모</label><br>
-      <textarea name="etc" cols="50" rows="4"></textarea>
+      <label for="memo">Content</label><br>
+      <textarea id = "memo" name="etc" cols="50" rows="4"></textarea>
     </div>
     <div>
-      <input type="submit" value="확인">
+      <input type="submit" value="확인" onclick="show()">
       <input type="reset" value="취소">
     </div>
   </div> 
 </form>
+<button type="button" onclick="location.href='main_page.html'">home</button>
+<div id = "demo"></div>
+
 </body>
 </html>
