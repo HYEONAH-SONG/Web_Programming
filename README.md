@@ -37,11 +37,11 @@
 
 ### :ballot_box_with_check: HOW TO DELIVER WEB REQUEST​
 
-![](C:\Users\송현아\Desktop\4_1\Web\Image\Application_Layer.PNG)
+![](https://github.com/HYEONAH-SONG/Web_Programming/blob/master/Image/Application_Layer.PNG?raw=true)
 
-![Transport_Layer](C:\Users\송현아\Desktop\4_1\Web\Image\Transport_Layer.PNG)
+![Transport_Layer](https://github.com/HYEONAH-SONG/Web_Programming/blob/master/Image/Transport_Layer.PNG?raw=true)
 
-![Internet_Layer](C:\Users\송현아\Desktop\4_1\Web\Image\Internet_Layer.PNG)
+![Internet_Layer](https://github.com/HYEONAH-SONG/Web_Programming/blob/master/Image/Internet_Layer.PNG?raw=true)
 
 ### :ballot_box_with_check: HTML
 
