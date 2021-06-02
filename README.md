@@ -44,13 +44,18 @@ REST(Representational State Transfer)이란, **웹에 존재하는 모든 리소
 
 ### :ballot_box_with_check:  Node JS and Express JS
 
-- Node JS
+- #### Node JS
+
   자바 스크립트를 브라우저 외에서도 실행하는데 사용되는 자바스크립트 플랫폼으로, 자바스크립트를 이용하여 서버를 만들 수 있도록한다.
+
   - 구글 크롬의 엔진을 지반으로 자바스크립트 엔진이 굉장히 빠르다
   - 비동기적 작업이 가능함
-- Express JS
+
+- #### Express JS
+
   Node JS의 웹 서버 기능 위에 올라가는 상대적으로 작은 프레임워크이다. 
 
+- 
 
 
 
