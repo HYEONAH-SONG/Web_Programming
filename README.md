@@ -13,6 +13,105 @@
 
 ![](https://www.timetodev.co.kr/Upload/TextEditor/frontbackendproccess2.png)
 
+### :ballot_box_with_check:  Application Architectures
+
+- #### Client-server model
+
+  - 서버에서 모든 기능을 관리
+  - 서버는 365일 24시간 항상 구동
+
+- #### Peer-to-Peer model
+
+  -  통신 원하는 Peer 끼리 직접 통신
+  - 관리가 어려움 (서버가 존재하지 않기 때문에)
+  - 버전 등 업데이트가 같아야 통신이 가능하므로 유지보수하는데 어려움이 존재
+
+### :ballot_box_with_check: ​World Wide Web(WWW)
+
+- 웹 페이지는 다양한 객체들을 포함하는 HTML에 의해 표현됨
+- 각각의 객체들은 **URL**로  지정할 수 있음
+
+![](https://t1.daumcdn.net/cfile/tistory/21089E34587B28D50A)
+
+
+
+### :ballot_box_with_check: HOW TO DELIVER WEB REQUEST​
+
+![](C:\Users\송현아\Desktop\4_1\Web\Image\Application_Layer.PNG)
+
+![Transport_Layer](C:\Users\송현아\Desktop\4_1\Web\Image\Transport_Layer.PNG)
+
+![Internet_Layer](C:\Users\송현아\Desktop\4_1\Web\Image\Internet_Layer.PNG)
+
+### :ballot_box_with_check: HTML
+
+- #### HTML List
+
+  ```html
+  <!DOCTYPE html>
+  <html>
+  <body>
+  <ul style="list-style-type:square;">
+    <li>Coffee</li>
+    <li>Tea</li>
+    <li>Milk</li>
+  </ul>
+      
+  <ol type=“a">
+    <li>Coffee</li>
+    <li>Tea</li>
+    <li>Milk</li>
+  </ol>  
+  </body>
+  </html>            
+  ```
+
+  - ##### Unordered HTML List style
+
+    | **Value** | **Description**                                 |
+    | --------- | ----------------------------------------------- |
+    | disc      | Sets the list item marker to a bullet (default) |
+    | circle    | Sets the list item marker to a circle           |
+    | square    | Sets the list item marker to a square           |
+    | none      | The list items will not be marked               |
+
+  - ##### Ordered HTML List style
+
+    | **Type** | **Description**                                              |
+    | -------- | ------------------------------------------------------------ |
+    | type="1" | The list items will be numbered with numbers (default)       |
+    | type="A" | The list items will be numbered with uppercase letters       |
+    | type="a" | The list items will be numbered with lowercase letters       |
+    | type="I" | The list items will be numbered with uppercase roman numbers |
+    | type="i" | The list items will be numbered with lowercase roman numbers |
+
+- #### HTML Table
+
+  ```html
+  <table style="width:100%">  
+      <tr>    
+          <th>Name</th>    
+          <th colspan="2">Telephone</th> 
+      </tr> 
+      <tr>    
+          <td>Bill Gates</td>  
+          <td>55577854</td>    
+          <td>55577855</td>  
+      </tr>
+  </table>
+  ```
+
+- #### HTML Semantic Elements
+
+  - header : 전체에 대한 설명(제목 등)
+  - nav : 주요 page link 제공
+  - section : chapter 구분
+  - article : 구분되는 기사 뉴스 등
+  - aside : section이나 article에 대한 부연 설명
+  - footer : 작성자/연락처/저작권 등
+
+  ![](http://www.springboardseo.com/img/html5-semantic-page-layout.jpg)
+
 ### :ballot_box_with_check: REST?
 
 REST(Representational State Transfer)이란, **웹에 존재하는 모든 리소스에 고유한 URI를 부여해 활용하는 것**으로 리소스를 정의하고 리소스에 대한 주소를 지정하는 방법론을 의미한다. 
@@ -55,7 +154,25 @@ REST(Representational State Transfer)이란, **웹에 존재하는 모든 리소
 
   Node JS의 웹 서버 기능 위에 올라가는 상대적으로 작은 프레임워크이다. 
 
-- 
 
+## :bookmark:Homework
 
+- ##### assign_01_201824509_송현아  ~ assign_04_201824509__송현아 
+
+  - SWOT 분석
+  - HTML + CSS
+
+- ##### assign_05_201824509_송현아
+
+  - 개인정보 입력 페이지
+
+- ##### assign_06_201824509_송현아
+
+  - 계산기 페이지
+
+- ##### assign_07_201824509_송현아
+
+  - 피보나치 수열 계산 페이지
+
+#### 
 
