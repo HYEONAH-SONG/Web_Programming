@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StopWatch</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div style="text-align: center">
+      <h1 id ="now" style="color:azure"></h1>
+    </div>
+    <!-- 타이머 출력하는 부분 -->
+    <div id="timer">
+      00:00:00
+    </div>
+    <!-- 타이머 컨트롤 버튼 -->
+    <div id="buttons">
+      <button id="start_btn" onclick="startTimer();">Study Start</button>
+      <button id="pause_btn" onclick="stopTimer();">Study Stop</button>
+      <button id="reset_btn" onclick="resetTimer();">Time Reset</button>
+    </div>
+    <ul id="myUL"></ul>
+    <script src="studyTimer.js"></script>
+  </body>
+</html>
