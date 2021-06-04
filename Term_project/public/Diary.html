@@ -44,7 +44,7 @@ body {
 .container::after {
   content: '';
   position: absolute;
-  width: 25px;
+  width: 25px;ccccccc
   height: 25px;
   right: -17px;
   background-color: white;
@@ -147,7 +147,7 @@ button{
 </style>
 </head>
 <body>
-<div id="dia"></div>
+<div data-page="dia"></div>
 <div class="timeline">
   <div class="container left">
     <div class="content">
@@ -163,5 +163,11 @@ button{
   </div>
 </div>
 <button type="button" onclick="location.href='main_page.html'">home</button>
+<script>
+      // Retrieving data:
+    text = localStorage.getItem("testJSON");
+    obj = JSON.parse(text);
+    document.getElementById("dia").innerHTML = obj.title; 
+</script>
 </body>
 </html>

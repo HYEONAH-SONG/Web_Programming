@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="diary_manage.js"></script>
+  <!-- <script src="diary_manage.js"></script> -->
   <title>Add Diary</title>
   <style>
     .box2{
@@ -123,9 +123,28 @@
 <button type="button" onclick="location.href='main_page.html'">home</button>
 <button type="button" onclick="reset()">reset</button>
 <script>
+  // Create an object:
+  function show(){
+
+    for (var i=0; i<5; i++) {
+            if (document.getElementsByName("category")[i].checked == true) {
+                e =  document.getElementsByName("category")[i].value;
+            }
+    }
+    name = document.getElementById('fname').value;
+    document.getElementById("result").innerHTML = name ;
+    var memo = {
+      title: document.getElementById('fname').value,
+      date: document.getElementById('date').value,
+      emotion: e,
+      content:document.getElementById('memo').value
+    };
+    document.getElementById("result").innerHTML = "<h1>" + memo["title"] + "</h1>" + memo["date"] + "<br>" + memo["emotion"] + "<br><br>" + memo["content"] ;
+  }
   function reset(){
     document.getElementById("result").innerHTML = "" ;
   }
+
 </script>
 </body>
 </html>

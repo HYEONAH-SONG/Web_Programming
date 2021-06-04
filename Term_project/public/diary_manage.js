@@ -15,11 +15,6 @@
     document.getElementById("result").innerHTML = "<h1>" + memo["title"] + "</h1>" + memo["date"] + "<br>" + memo["emotion"] + "<br><br>" + memo["content"] ;
     // Storing data:
     myJSON = JSON.stringify(memo);
-    localStorage.setItem("testJSON",myJSON);
-
-    // Retrieving data:
-    text = localStorage.getItem("testJSON");
-    obj = JSON.parse(text);
-    document.getElementById("dia").innerHTML = obj.title;    
+    localStorage.setItem("testJSON",myJSON);   
     
   }
