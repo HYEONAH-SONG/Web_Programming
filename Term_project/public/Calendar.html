@@ -1,157 +1,114 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-<style>
-* {box-sizing: border-box;
-padding-top: 1%;
-}
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie</title>
+  <style>
 
-ul {list-style-type: none;}
+    /* 제일 상단 부분 */
+    header { 
+      text-align:center;
+      background-color:#b1b6e3;
+      padding: 30px 10px 10px 10px;
+      color: white;  
+    }
+    table {
+      border-collapse: collapse;
+      width: 95%;
+    }
 
-body {font-family: Verdana, sans-serif;}
+    th, td {
+      border: 1px solid black;
+      text-align:center;
+    }
 
-.month {
-  padding: 70px 25px;
-  width: 100%;
-  background: #b1b6e3;
-  text-align: center;
-}
+    #movie_search{
+      margin-top: 20px;
+      margin-left: 20px;
+    }
+    table ,form,button{
+      margin: 30px 10px 10px 50px;
+    }
 
-.month ul {
-  margin: 0;
-  padding: 0;
-}
+    #g_table{
+      margin-left: 50px;
+    }
+    button{
+      border-radius: 15px;
+      border: 1px solid #b1b6e3;
+      padding: 6px 8px;
+      background-color: #e5e6f6;
+    }
 
-.month ul li {
-  color: white;
-  font-size: 20px;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-}
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
+    xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === 4) {
+            console.log(this.responseText);
+            // 로그 데이터  출력
+            // document.getElementById("raw_data").innerHTML = this.responseText;
+            var tbl = document.getElementById('tbl0');
+            tbl.innerHTML = "<tr><th>영화 제목</th><th>영화 링크</th><th>이미지</th><th>영화 감독</th><th>평점</th></tr>";
 
-.month .prev {
-  float: left;
-  padding-top: 10px;
-}
+            var parsed = JSON.parse(this.responseText);
+            for (i in parsed.items) {
+                var cur = parsed.items[i];   
+                tbl.innerHTML += "<tr><td>" + cur.title + "</td><td>" + cur.link + "</td><td>" 
+                    + cur.image + "</td><td>" + cur.director + "</td><td>" + cur.userRating + "</td></tr>";
+            }
+        }
+    });
 
-.month .next {
-  float: right;
-  padding-top: 10px;
-}
-
-.weekdays {
-  margin: 0;
-  padding: 10px 0;
-  background-color: #ddd;
-}
-
-.weekdays li {
-  display: inline-block;
-  width: 13.6%;
-  color: #666;
-  text-align: center;
-}
-
-.days {
-  padding: 10px 0;
-  background: #eee;
-  margin: 0;
-}
-
-.days li {
-  list-style-type: none;
-  display: inline-block;
-  width: 13.6%;
-  text-align: center;
-  margin-bottom: 5px;
-  font-size:12px;
-  color: #777;
-}
-
-.days li .active {
-  padding: 5px;
-  background: #b1b6e3;
-  color: white !important
-}
-
-/* Add media queries for smaller screens */
-@media screen and (max-width:720px) {
-  .weekdays li, .days li {width: 13.1%;}
-}
-
-@media screen and (max-width: 420px) {
-  .weekdays li, .days li {width: 12.5%;}
-  .days li .active {padding: 2px;}
-}
-
-@media screen and (max-width: 290px) {
-  .weekdays li, .days li {width: 12.2%;}
-}
-button{
-  float: right;
-  border-radius: 15px;      
-  margin: 10px 0;
-  padding: 10px 12px;
-  border: 1px solid gray;  
-}
-</style>
+    function displayResponse(){
+        if(document.getElementById('query').value.length > 30)
+        {
+            alert("query length error");
+            return;
+        }
+        // 로컬 호스트에 요청을 보냄
+        var url = "http://localhost:3000/movie";
+        var query = document.getElementById('query').value;      
+        var genre = document.getElementById('genre').value;       
+        url = url + "?" + "query="+query +" &genre="+genre       
+        xhr.open("GET", url);
+        xhr.send();       
+    }          
+  </script>
 </head>
 <body>
+  <header>
+    <h1>Movie List</h1>
+    <p>Find your movie</p>
+  </header> 
+  <!-- 장르 검색용 표 -->
+  <section>
+    <table style="width:95%" id="g_table">
+      <caption style=>Movie Genre</caption>
+      <tr style="background-color: #e5e6f6;">
+        <th>1</th><th>2</th><th>4</th><th>7</th><th>11</th><th>12</th><th>15</th><th>16</th>
+      </tr>
+      <tr>
+        <td>드라마</td><td>판타지</td><td>공포</td><td>스릴러</td><td>코미디</td><td>가족</td><td>애니메이션</td><td>범죄</td>
+      </tr>
+    </table>
+  </section>
+  <!-- 영화 검색을 위한 form  -->
+  <form>
+    <label for='query'> 영화 키워드 :</label>
+    <input type="text" id='query' name='query' value="토토로" style="margin-bottom: 10px"><br>
+    <label for='genre'> 영화 장르 :</label>
+    <input type="text" id='genre' name='genre' value=15 style="margin-bottom: 10px"><br>
+  </form>
+  <button onclick="displayResponse()">영화 검색</button>
 
-<div class="month">      
-  <ul>
-    <li class="prev">&#10094;</li>
-    <li class="next">&#10095;</li>
-    <li>
-      August<br>
-      <span style="font-size:18px">2021</span>
-    </li>
-  </ul>
-</div>
 
-<ul class="weekdays">
-  <li>Mo</li>
-  <li>Tu</li>
-  <li>We</li>
-  <li>Th</li>
-  <li>Fr</li>
-  <li>Sa</li>
-  <li>Su</li>
-</ul>
-
-<ul class="days">  
-  <li>1</li>
-  <li>2</li>
-  <li>3</li>
-  <li>4</li>
-  <li>5</li>
-  <li>6</li>
-  <li>7</li>
-  <li>8</li>
-  <li>9</li>
-  <li><span class="active">10</span></li>
-  <li>11</li>
-  <li>12</li>
-  <li>13</li>
-  <li>14</li>
-  <li>15</li>
-  <li>16</li>
-  <li>17</li>
-  <li>18</li>
-  <li>19</li>
-  <li>20</li>
-  <li>21</li>
-  <li>22</li>
-  <li>23</li>
-  <li>24</li>
-  <li>25</li>
-  <li>26</li>
-  <li>27</li>
-  <li>28</li>
-  <li>29</li>
-  <li>30</li>
-  <li>31</li>
-</ul>
-<button type="button" onclick="location.href='main_page.html'">home</button>
+<!-- 영화 검색 결과를 표로 출력 -->
+<table id = "tbl0"></table>
+<p id="raw_data"></p>
 </body>
 </html>

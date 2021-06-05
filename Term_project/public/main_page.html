@@ -61,6 +61,10 @@
             padding: 10px 12px;
             border: 1px solid #b1b6e3;
         }
+        #weather{
+            margin-left: 50px;
+            color: #b1b6e3;
+        }
     </style>
 </head>
 <!-- 본문 작성 -->
@@ -70,15 +74,16 @@
         <p>Do Your Best!</p>
     </header>
     <nav>
-        <a href="Calendar.html">[ Calendar ]</a>&nbsp;&nbsp;
-        <a href="add_schedule.html">[ Add Diary ]</a>&nbsp;&nbsp;
+        <a href="Calendar.html">[ Movie ]</a>&nbsp;&nbsp;
         <a href="todo_list.html">[ To Do List ]</a>&nbsp;&nbsp;
+        <a href="add_schedule.html">[ Add Diary ]</a>&nbsp;&nbsp;
         <a href="Diary.html">[ Diary ]</a>&nbsp;&nbsp;
         <a href="StopWatch/stopwatch.html">[ StopWatch ]</a>&nbsp;&nbsp;
-        <form method=get action="http://www.youtube.com/results" target="_blank" >     
-            YouTube         
-            <input type=text name=q size=20% maxlength=255 value="" /> <!-- 유튜브 검색 입력 창 -->           
-            <input type=submit name=btnG2 value="Search" /> <!-- 검색 버튼 -->       
+        <form method=get action="http://www.youtube.com/results" target="_blank" >    
+                YouTube         
+                <input type=text name=q size=20% maxlength=255 value="" /> <!-- 유튜브 검색 입력 창 -->           
+                <input type=submit name=btnG2 value="Search" /> <!-- 검색 버튼 -->  
+                <p id="weather"></p>     
         </form>        
     </nav>    
     <section id="google">
@@ -87,34 +92,33 @@
             <input type=submit name=btnG value="Search" /> <!-- 검색 버튼 -->       
         </form>
     </section>
-    <div id ="demo"></div>
-    <div id ="demo1"></div>
-    <div id ="demo2"></div>
-    <button onclick="displayResponse()">Weather</button>
     <script>
-        // XHR로 구현한 코드
-        function displayResponse(){
-            var xhr = new XMLHttpRequest();
-            xhr.withCredentials = true;
-
-            xhr.addEventListener("readystatechange", function() {
-                if(this.readyState === 4) {
-                    console.log(this.responseText);
-                    document.getElementById("demo").innerHTML = this.responseText;
-                    var parsed = JSON.parse(this.responseText);
-                    for (i in parsed.getLifeInfo.item){
-                        var cur = parsed.getLifeInfo.item[i];
-                        var pid = "demo"+i;
-                        for(j in cur){
-                            document.getElementById(pid).innerHTML += cur[j][0] + " ";
-                        }
-                    }
+        const getJSON = function(url,callback){
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET',url,true);
+            xhr.responseType = 'json';
+            xhr.onload = function(){
+                //접속이 성공적이면 null 값 반환, 그 외에는 status 값 반환
+                const status = xhr.status;
+                if(status === 200){
+                    callback(null, xhr.response);
+                }else{
+                    callback(status,xhr.response);
                 }
-                
-            });
-            xhr.open("GET", "http://localhost:3000/webapi");
+            };
             xhr.send();
-        }
+        };
+
+        getJSON('https://api.openweathermap.org/data/2.5/weather?q=busan&appid=8a2d42a5944d266c120da612439b6983&units=metric',
+        function(err,data){
+            // null 값이 아니면 err
+            if(err !== null){
+                alert('죄송합니다. 예상치못한 오류가 발생했습니다.' + err);
+            }else{
+                document.getElementById("weather").innerHTML = "현재 온도는 "+data.main.temp+"도 입니다 <br>" +"현재 습도는 "
+                +data.main.humidity+"% 입니다";
+            }
+        });        
     </script>
 </body>
 </html>
