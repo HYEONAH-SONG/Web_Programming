@@ -89,6 +89,9 @@ function timerCycle() {
 // Time Reset 버튼을 누르는 경우 => 시간 리셋 함수 
 function resetTimer() {
   time.innerHTML = '00:00:00';
+  min = 0;
+  sec = 0;
+  hour = 0;
 }
 
 var clockTarget = document.getElementById("now");

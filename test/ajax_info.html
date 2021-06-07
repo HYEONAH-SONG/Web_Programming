@@ -156,9 +156,13 @@ body {
     </div>
   </div>
 </div>
-<button type="button" onclick="location.href='add_diary.html'">home</button>
-<script>
-    
+<button type="button" onclick="location.href='add_diary.html'">Back</button>
+<script type="text/javascript" src="diary.json">
+    var mydata = JSON.parse(diary);
+    alert(mydata[0].squadName);
+    alert(mydata[0].age);
+    alert(mydata[1].name);
+    alert(mydata[1].age);
 </script>
 </body>
 </html>

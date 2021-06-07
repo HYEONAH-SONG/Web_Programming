@@ -118,6 +118,7 @@
       <input type="reset" value="취소">
     </div>
   </div> 
+  <hr>
 </form>
 <div id ="result"></div>
 <button type="button" onclick="location.href='main_page.html'">home</button>
@@ -131,16 +132,17 @@
             if (document.getElementsByName("category")[i].checked == true) {
                 e =  document.getElementsByName("category")[i].value;
             }
+          }
     }
     name = document.getElementById('fname').value;
-    document.getElementById("result").innerHTML = name ;
+    // document.getElementById("result").innerHTML = name ;
     var memo = {
       title: document.getElementById('fname').value,
       date: document.getElementById('date').value,
       emotion: e,
       content:document.getElementById('memo').value
     };
-    document.getElementById("result").innerHTML = "<h1>" + memo["title"] + "</h1>" + memo["date"] + "<br>" + memo["emotion"] + "<br><br>" + memo["content"] ;
+    document.getElementById("result").innerHTML += "<h1>" + memo["title"] + "</h1>" + memo["date"] + "<br>" + memo["emotion"] + "<br><br>" + memo["content"] ;
   }
   function reset(){
     document.getElementById("result").innerHTML = "" ;
