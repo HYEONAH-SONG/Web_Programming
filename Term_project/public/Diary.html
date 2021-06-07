@@ -1,164 +1,150 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="diary_manage.js"></script>
-<style>
-* {
-  box-sizing: border-box;
-}
-
-body {
-  background-color: #b1b6e3;
-  font-family: Helvetica, sans-serif;
-}
-
-/* The actual timeline (the vertical ruler) */
-.timeline {
-  position: relative;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* The actual timeline (the vertical ruler) */
-.timeline::after {
-  content: '';
-  position: absolute;
-  width: 6px;
-  background-color: white;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  margin-left: -3px;
-}
-
-/* Container around content */
-.container {
-  padding: 10px 40px;
-  position: relative;
-  background-color: inherit;
-  width: 50%;
-}
-
-/* The circles on the timeline */
-.container::after {
-  content: '';
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  right: -17px;
-  background-color: white;
-  border: 4px solid #b1b6e3;
-  top: 15px;
-  border-radius: 50%;
-  z-index: 1;
-}
-
-/* Place the container to the left */
-.left {
-  left: 0;
-}
-
-/* Place the container to the right */
-.right {
-  left: 50%;
-}
-
-/* Add arrows to the left container (pointing right) */
-.left::before {
-  content: " ";
-  height: 0;
-  position: absolute;
-  top: 22px;
-  width: 0;
-  z-index: 1;
-  right: 30px;
-  border: medium solid white;
-  border-width: 10px 0 10px 10px;
-  border-color: transparent transparent transparent white;
-}
-
-/* Add arrows to the right container (pointing left) */
-.right::before {
-  content: " ";
-  height: 0;
-  position: absolute;
-  top: 22px;
-  width: 0;
-  z-index: 1;
-  left: 30px;
-  border: medium solid white;
-  border-width: 10px 10px 10px 0;
-  border-color: transparent white transparent transparent;
-}
-
-/* Fix the circle for containers on the right side */
-.right::after {
-  left: -16px;
-}
-
-/* The actual content */
-.content {
-  padding: 20px 30px;
-  background-color: white;
-  position: relative;
-  border-radius: 6px;
-}
-
-/* Media queries - Responsive timeline on screens less than 600px wide */
-@media screen and (max-width: 600px) {
-  /* Place the timelime to the left */
-  .timeline::after {
-  left: 31px;
-  }
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Diary</title>
+  <style>
+    header { 
+        text-align:center;
+        background-color:#b1b6e3;
+        padding: 30px 10px 10px 10px;
+        color: white;  
+        margin-bottom: 20px;
+    }    
+    input[type=text]{
+      width: 25%;
+      border: 1px solid #8c8c8c;
+      box-sizing: border-box;
+      padding: 5px;
+      color: #8c8c8c;
+    }
+    input[type=button],input[type=reset]{
+      float: right;
+      margin: 5px;
+      width: 80px;
+    }
+    textarea{
+      margin-top: 4px;
+      width: 99.5%;     
+    }
+    #date{
+      border: 1px solid #8c8c8c;
+      display: inline-block;
+      margin: 4px;
+      height: 25px;
+      font-size: 12px; 
+      width: 170px;
+    }
+    button{
+      float: right;
+      border-radius: 15px;      
+      margin: 10px 5px;
+      padding: 10px 12px;
+      border:3px;
+    }
+    #result{
+      margin-top: 30px;
+      padding: 15px;
+    }
+    legend {
+      background-color: #b1b6e3;
+      color: white;
+      padding: 5px 10px;
+    }
+    #legend2{
+      background-color:#b1b6e3;
+    }
+    fieldset {
+      border: 1px solid #999;
+      background-color: white;
+    }
+    #f_search{
+      margin-top:20px;
+    }
+  </style>
+  <script>
   
-  /* Full-width containers */
-  .container {
-  width: 100%;
-  padding-left: 70px;
-  padding-right: 25px;
-  }
-  
-  /* Make sure that all arrows are pointing leftwards */
-  .container::before {
-  left: 60px;
-  border: medium solid white;
-  border-width: 10px 10px 10px 0;
-  border-color: transparent white transparent transparent;
-  }
-
-  /* Make sure all circles are at the same spot */
-  .left::after, .right::after {
-  left: 15px;
-  }
-  
-  /* Make all right containers behave like the left ones */
-  .right {
-  left: 0%;
-  }
-}
-
-</style>
+    // Create an object:
+    function show(){
+      for (var i=0; i<5; i++) {
+              if (document.getElementsByName("category")[i].checked == true) {
+                  e =  document.getElementsByName("category")[i].value;
+              }
+            }
+      //JSON data
+      var memo = { 
+        title: document.getElementById('fname').value,
+        date: document.getElementById('date').value,
+        emotion: e,
+        content:document.getElementById('memo').value
+      };
+      
+      localStorage.setItem(memo["date"],JSON.stringify(memo));
+      // 결과 출력
+      document.getElementById("result").innerHTML +="<h1> 제목: " + memo["title"] + "</h1>" +"날짜: "+ memo["date"] + "<br>" + "기분: "+ memo["emotion"] + "<br><br>" + memo["content"] ;
+      document.getElementById("result").style.border = "1px solid #999";
+    }
+    // Reset an object in localStorage:
+    function reset(){
+      localStorage.clear();
+      document.getElementById("result").innerHTML = "" ;
+      document.getElementById("result").style.border = "none";
+    }
+    function search(){
+      var key_d = document.getElementById("date2").value;
+      var loc = JSON.parse(localStorage[key_d]);
+      document.getElementById("result").innerHTML +="<h1> 제목: " +loc["title"] + "</h1>" +"날짜: "+ loc["date"] + "<br>" + "기분: "+ loc["emotion"] + "<br><br>" + loc["content"] ;
+    }
+    function bin(){
+      document.getElementById("result").innerHTML = "" ;
+      document.getElementById("result").style.border = "none";
+    }
+  </script>
 </head>
-<body>
-<div data-page="dia"></div>
-<div class="timeline">
-  <div class="container left">
-    <div class="content">
-      <h2>2017</h2>
-      <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
-    </div>
-  </div>
-  <div class="container right">
-    <div class="content">
-      <h2>2016</h2>
-      <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
-    </div>
-  </div>
-</div>
-<button type="button" onclick="location.href='add_diary.html'">home</button>
-<script>
-    
-</script>
+<body style="background-color: #f2f3fa;">
+  <header>
+    <h1>Hyun's Diary</h1>
+    <p>Do Your Best!</p>
+</header>
+<!----------------------------다이어리 작성 Form -------------------------->
+  <form action="#">
+    <fieldset>
+        <legend>Add Diary :)</legend>
+        <label for="fname">Title : </label>
+        <input type="text" name="fname" id="fname" placeholder="제목 입력" required><br><br>
+        <label for="date">Date : </label>
+        <span><input type="date" id="date" name="date" required></span><br><br>
+        <label for="interest">Emotion</label><br>
+        <div>
+          행복<input type="radio" name="category" value="happy" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          슬픔<input type="radio" name="category" value="sad" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          기쁨<input type="radio" name="category" value="glad" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          화남<input type="radio" name="category" value="angry">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          놀람<input type="radio" name="category" value="surprised" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </div><br>
+        <label for="memo">Content</label><br>
+        <textarea id = "memo" name="memo" cols="50" rows="4" required></textarea><br><br>
+        <input type="button" value="저장" onclick="show()">
+        <input type="reset" value="취소">
+        <input type="button" value="비우기" onclick="bin()">
+    </fieldset>
+  </form>
+
+<!----------------------------다이어리 검색결과 -------------------------->
+  <form id = "f_search" action="#">
+    <fieldset>
+      <legend id = "legend2">Search Diary :(</legend>
+      ▼ 원하는 일기 날짜를 선택하세요 ▼<br>
+      <label for="date2">Date : </label>
+      <span><input type="date" id="date2" name="date2" required></span><br>
+      <input type="button" value="검색" onclick="search()">
+      <input type="button" value = "홈화면" onclick="location.href='main_page.html'">
+      <input type="button" value="초기화" onclick="reset()">
+    </fieldset>
+</form>
+<!----------------------------다이어리 출력결과 -------------------------->
+<div id ="result"></div>             
 </body>
 </html>

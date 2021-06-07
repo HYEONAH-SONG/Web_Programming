@@ -76,7 +76,6 @@
     <nav>
         <a href="movie_Search.html">[ Movie ]</a>&nbsp;&nbsp;
         <a href="todo_list.html">[ To Do List ]</a>&nbsp;&nbsp;
-        <a href="add_schedule.html">[ Add Diary ]</a>&nbsp;&nbsp;
         <a href="Diary.html">[ Diary ]</a>&nbsp;&nbsp;
         <a href="StopWatch/stopwatch.html">[ StopWatch ]</a>&nbsp;&nbsp;
         <form method=get action="http://www.youtube.com/results" target="_blank" >    
@@ -115,8 +114,8 @@
             if(err !== null){
                 alert('죄송합니다. 예상치못한 오류가 발생했습니다.' + err);
             }else{
-                document.getElementById("weather").innerHTML = "현재 온도는 "+data.main.temp+"도 입니다 <br>" +"현재 습도는 "
-                +data.main.humidity+"% 입니다";
+                document.getElementById("weather").innerHTML = "Today's weather is " + weather.main +"<br> It's just like" + data.weather.description+"<br> Temperature : "+data.main.temp+"<br> Humidity : "
+                +data.main.humidity+"%";
             }
         });        
     </script>
