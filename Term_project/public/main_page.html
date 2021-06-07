@@ -114,8 +114,8 @@
             if(err !== null){
                 alert('죄송합니다. 예상치못한 오류가 발생했습니다.' + err);
             }else{
-                document.getElementById("weather").innerHTML = "Today's weather is " + weather.main +"<br> It's just like" + data.weather.description+"<br> Temperature : "+data.main.temp+"<br> Humidity : "
-                +data.main.humidity+"%";
+                document.getElementById("weather").innerHTML = "Today's weather in " + data.name+" is "+ data.weather[0].main +"<br> Temperature : "+data.main.temp+"<br> Humidity : "
+                +data.main.humidity;
             }
         });        
     </script>
