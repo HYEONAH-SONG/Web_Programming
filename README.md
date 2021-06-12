@@ -154,18 +154,6 @@ REST(Representational State Transfer)이란, **웹에 존재하는 모든 리소
 
   Node JS의 웹 서버 기능 위에 올라가는 상대적으로 작은 프레임워크이다. 
   
-  ### :ballot_box_with_check:  Node JS and Express JS
-  
-  - #### Node JS
-  
-    자바 스크립트를 브라우저 외에서도 실행하는데 사용되는 자바스크립트 플랫폼으로, 자바스크립트를 이용하여 서버를 만들 수 있도록한다.
-  
-    - 구글 크롬의 엔진을 지반으로 자바스크립트 엔진이 굉장히 빠르다
-    - 비동기적 작업이 가능함
-  
-  - #### Express JS
-  
-    Node JS의 웹 서버 기능 위에 올라가는 상대적으로 작은 프레임워크이다. 
 
 
 ## :bookmark:Homework
@@ -187,122 +175,19 @@ REST(Representational State Transfer)이란, **웹에 존재하는 모든 리소
 
   - 피보나치 수열 계산 페이지
 
+## :bookmark: Term Project​
 
+- ## Hyun's Note
 
-- #### Express JS
+- 최소 개발 기준
 
-  Node JS의 웹 서버 기능 위에 올라가는 상대적으로 작은 프레임워크이다. 
+✓ OPEN API  2개 이상 활용
 
-  ### :ballot_box_with_check:  Node JS and Express JS
+✓ HTML/CSS 15개 이상
 
-  - #### Node JS
+✓ Java Script를 통해 3 가지 이상의 동적 기능 제공
 
-    자바 스크립트를 브라우저 외에서도 실행하는데 사용되는 자바스크립트 플랫폼으로, 자바스크립트를 이용하여 서버를 만들 수 있도록한다.
+✓ Java Script를 통해 부적절한 입력 및 OPEN API의 response 중 에러에 대한 처리
 
-    - 구글 크롬의 엔진을 지반으로 자바스크립트 엔진이 굉장히 빠르다
-    - 비동기적 작업이 가능함
-
-  - #### Express JS
-
-    Node JS의 웹 서버 기능 위에 올라가는 상대적으로 작은 프레임워크이다. 
-
-
-## :bookmark:Homework
-
-- ##### assign_01_201824509_송현아  ~ assign_04_201824509__송현아 
-
-  - SWOT 분석
-  - HTML + CSS
-
-- ##### assign_05_201824509_송현아
-
-  - 개인정보 입력 페이지
-
-- ##### assign_06_201824509_송현아
-
-  - 계산기 페이지
-
-- ##### assign_07_201824509_송현아
-
-  - 피보나치 수열 계산 페이지
-
-
-
-- #### Express JS
-
-  Node JS의 웹 서버 기능 위에 올라가는 상대적으로 작은 프레임워크이다. 
-
-  ### :ballot_box_with_check:  Node JS and Express JS
-
-  - #### Node JS
-
-    자바 스크립트를 브라우저 외에서도 실행하는데 사용되는 자바스크립트 플랫폼으로, 자바스크립트를 이용하여 서버를 만들 수 있도록한다.
-
-    - 구글 크롬의 엔진을 지반으로 자바스크립트 엔진이 굉장히 빠르다
-    - 비동기적 작업이 가능함
-
-  - #### Express JS
-
-    Node JS의 웹 서버 기능 위에 올라가는 상대적으로 작은 프레임워크이다. 
-
-
-## :bookmark:Homework
-
-- ##### assign_01_201824509_송현아  ~ assign_04_201824509__송현아 
-
-  - SWOT 분석
-  - HTML + CSS
-
-- ##### assign_05_201824509_송현아
-
-  - 개인정보 입력 페이지
-
-- ##### assign_06_201824509_송현아
-
-  - 계산기 페이지
-
-- ##### assign_07_201824509_송현아
-
-  - 피보나치 수열 계산 페이지
-
-- #### Express JS
-
-  Node JS의 웹 서버 기능 위에 올라가는 상대적으로 작은 프레임워크이다. 
-
-  ### :ballot_box_with_check:  Node JS and Express JS
-
-  - #### Node JS
-
-    자바 스크립트를 브라우저 외에서도 실행하는데 사용되는 자바스크립트 플랫폼으로, 자바스크립트를 이용하여 서버를 만들 수 있도록한다.
-
-    - 구글 크롬의 엔진을 지반으로 자바스크립트 엔진이 굉장히 빠르다
-    - 비동기적 작업이 가능함
-
-  - #### Express JS
-
-    Node JS의 웹 서버 기능 위에 올라가는 상대적으로 작은 프레임워크이다. 
-
-
-## :bookmark:Homework
-
-- ##### assign_01_201824509_송현아  ~ assign_04_201824509__송현아 
-
-  - SWOT 분석
-  - HTML + CSS
-
-- ##### assign_05_201824509_송현아
-
-  - 개인정보 입력 페이지
-
-- ##### assign_06_201824509_송현아
-
-  - 계산기 페이지
-
-- ##### assign_07_201824509_송현아
-
-  - 피보나치 수열 계산 페이지
-
-
-
-
+✓ jQuery/AJAX/JSON 기능 활용
 
