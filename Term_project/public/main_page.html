@@ -108,7 +108,7 @@
             xhr.send();
         };
 
-        getJSON('https://api.openweathermap.org/data/2.5/weather?q=busan&appid=8a2d42a5944d266c120da612439b6983&units=metric',
+        getJSON('https://api.openweathermap.org/data/2.5/weather?q=busan&appid={KEY}&units=metric',
         function(err,data){
             // null 값이 아니면 err
             if(err !== null){
