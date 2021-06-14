@@ -126,12 +126,7 @@ REST(Representational State Transfer)이란, **웹에 존재하는 모든 리소
 
   - Delete : DELETE ( 리소스 삭제 )
 
-  - #### CRUD Operation 
-
-    - Create : POST (리소스 생성)
-    - Read : GET (리소스의 정보 조회)
-    - Update : PUT (리소스의 정보 업데이트)
-    - Delete : DELETE ( 리소스 삭제 )
+    
 
 - #### 특징
 
